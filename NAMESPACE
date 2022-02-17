@@ -2,4 +2,4 @@
 
 export(deviner_langue)
 export(deviner_langues)
-importFrom(V8,v8)
+importFrom(V8,new_context)

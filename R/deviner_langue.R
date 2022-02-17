@@ -14,8 +14,6 @@
 #'
 #' @name deviner-langage
 #'
-#' @importFrom V8 v8
-#'
 #' @examples
 #'
 #' deviner_langue("Bonjour, une baguette pas trop cuite, s'il vous plaît !")
@@ -23,11 +21,8 @@
 #' deviner_langues(c("Hello world!", "Salut la compagnie !"))
 #' deviner_langues(c("Hello world!", "Salut la compagnie !"), retour = "alpha2")
 deviner_langue <- function(texte) {
-  stopifnot("deviner_langue: 'texte' doit être de longueur 1" = is.character(texte) & length(texte) == 1L)
-  ctx <- v8()
-  ctx$source(
-    file = system.file("assets/nlp-bundle.js", package = "nlpr.fr")
-  )
+  stopifnot("deviner_langue: \'texte\' doit \u00eatre de longueur 1" = is.character(texte) & length(texte) == 1L)
+  ctx <- v8_context()
   ctx$assign("text", texte)
   ctx$eval("result = rutils.guess(text);")
   ctx$get("result")
@@ -41,13 +36,10 @@ deviner_langues <- function(texte, retour = c("langue", "alpha2", "alpha3")) {
   retour <- match.arg(retour)
   if (retour == "langue")
     retour <- "language"
-  stopifnot("deviner_langues: 'texte' doit être une chaîne de caractère" = is.character(texte))
+  stopifnot("deviner_langues: \'texte\' doit \u00eatre une cha\u00eene de caract\u00e8re" = is.character(texte))
   if (length(texte) < 1)
     return(character(0))
-  ctx <- v8()
-  ctx$source(
-    file = system.file("assets/nlp-bundle.js", package = "nlpr.fr")
-  )
+  ctx <- v8_context()
   ctx$assign("text", list1(texte))
   ctx$assign("value", retour)
   ctx$eval("result = rutils.guessMap(text, value);")
