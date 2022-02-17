@@ -37,6 +37,26 @@ module.exports = {
       });
     });
     return Promise.all(results);
+  },
+  normalize: function(text) {
+    const normalizer = new nlpjs.NormalizerFr();
+    return text.map(function(x) {
+      if (x === null) {
+        return null;
+      } else {
+        return normalizer.normalize(x);
+      }
+    });
+  },
+  tokenize: function(text, normalize) {
+    const tokenizer = new nlpjs.TokenizerFr();
+    return text.map(function(x) {
+      if (x === null) {
+        return null;
+      } else {
+        return tokenizer.tokenize(x, normalize);
+      }
+    });
   }
 };
 
