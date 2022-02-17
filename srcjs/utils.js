@@ -14,6 +14,29 @@ module.exports = {
         return result[value];
       }
     });
+  },
+  analyzeSentiment: async function(text) {
+    const container = new nlpjs.Container();
+    container.use(nlpjs.LangFr);
+    const sentiment = new nlpjs.SentimentAnalyzer({ container });
+    const result = sentiment.process({locale: "fr", text: text});
+    return result;
+  },
+  analyzeSentimentMap: async function(text, value) {
+    const container = new nlpjs.Container();
+    container.use(nlpjs.LangFr);
+    const sentiment = new nlpjs.SentimentAnalyzer({ container });
+    var results = text.map(function(x) {
+      if (x === null) return null;
+      return sentiment.process({locale: "fr", text: x}).then(function(results) {
+         if (value == "all") {
+           return results.sentiment;
+         } else {
+           return results.sentiment[value];
+         }
+      });
+    });
+    return Promise.all(results);
   }
 };
 

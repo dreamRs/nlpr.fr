@@ -14,7 +14,8 @@ Authors@R:
              email = "opensource@axa.com",
              comment = "NLP.js library <https://github.com/axa-group/nlp.js>"))
 Description: 'NLP.js' <https://github.com/axa-group/nlp.js> is an NLP library for building bots,
-    with entity extraction, sentiment analysis, automatic language identify, and so more.
+    with entity extraction, sentiment analysis, automatic language identify, and so more. 
+    Only support for french language is included.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
