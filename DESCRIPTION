@@ -1,0 +1,23 @@
+Package: nlpr.fr
+Title: Client for 'NLP.js' for Natural Language Operations in French
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Victor",
+             family = "Perrier",
+             role = c("aut", "cre", "cph"),
+             email = "victor.perrier@dreamrs.fr"),
+      person(given = "Fanny",
+             family = "Meyer",
+             role = "aut"),
+      person(given = "AXA Group Operations Spain S.A",
+             role = "cph",
+             email = "opensource@axa.com",
+             comment = "NLP.js library <https://github.com/axa-group/nlp.js>"))
+Description: 'NLP.js' <https://github.com/axa-group/nlp.js> is an NLP library for building bots,
+    with entity extraction, sentiment analysis, automatic language identify, and so more.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports: 
+    V8

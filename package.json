@@ -1,0 +1,30 @@
+{
+  "name": "nlpr.fr",
+  "version": "1.0.0",
+  "description": "R interface to NLP.js",
+  "main": "index.js",
+  "dependencies": {
+    "@nlpjs/core": "^4.22.7",
+    "@nlpjs/lang-all": "^4.22.12",
+    "@nlpjs/lang-en-min": "^4.22.7",
+    "@nlpjs/language": "^4.22.7",
+    "@nlpjs/nlp": "^4.22.17",
+    "@nlpjs/sentiment": "^4.22.7",
+    "browserify": "^17.0.0",
+    "terser": "^5.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "browserdist": "browserify ./srcjs/index.js | terser --compress --mangle > ./inst/assets/nlp-bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreamRs/nlpr.fr.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dreamRs/nlpr.fr/issues"
+  },
+  "homepage": "https://github.com/dreamRs/nlpr.fr#readme"
+}
