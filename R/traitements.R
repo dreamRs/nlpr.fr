@@ -47,6 +47,9 @@ tokeniser <- function(texte, normaliser = TRUE) {
 #' @examples
 #' stemmatiser(c("les", "chats", "ont", "faim"))
 stemmatiser <- function(mots) {
+  if (is.list(mots)) {
+    return(lapply(mots, stemmatiser))
+  }
   stopifnot("stemmatiser: \'mots\' doit \u00eatre une cha\u00eene de caract\u00e8re" = is.character(mots))
   ctx <- v8_context()
   ctx$call(fun = "rutils.stem", list1(mots))
