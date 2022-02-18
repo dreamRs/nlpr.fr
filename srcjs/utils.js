@@ -57,6 +57,21 @@ module.exports = {
         return tokenizer.tokenize(x, normalize);
       }
     });
+  },
+  stem: function(text) {
+    const stemmer = new nlpjs.StemmerFr();
+    return stemmer.stem(text);
+  },
+  tokenizeAndStem: function(text, stopwords) {
+    const stemmer = new nlpjs.StemmerFr();
+    stemmer.stopwords = new nlpjs.StopwordsFr();
+    return text.map(function(x) {
+      if (x === null) {
+        return null;
+      } else {
+        return stemmer.tokenizeAndStem(x, stopwords);
+      }
+    });
   }
 };
 
